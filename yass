@@ -1,0 +1,98 @@
+<html>
+<body>
+<div>
+import java.io.IOException;  
+import java.io.PrintWriter;  
+import javax.servlet.ServletException;  
+import javax.servlet.http.HttpServlet;  
+import javax.servlet.http.HttpServletRequest;  
+import javax.servlet.http.HttpServletResponse;  
+import javax.servlet.http.HttpSession;  
+public class ProfileServlet extends HttpServlet {  
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)  
+                      throws ServletException, IOException {  
+        response.setContentType("text/html");  
+        PrintWriter out=response.getWriter();  
+        request.getRequestDispatcher("link.html").include(request, response);  
+          
+        HttpSession session=request.getSession(false);  
+        if(session!=null){  
+        String name=(String)session.getAttribute("name");  
+          
+        out.print("Hello, "+name+" Welcome to Profile");  
+        }  
+        else{  
+            out.print("Please login first");  
+            request.getRequestDispatcher("login.html").include(request, response);  
+        }  
+        out.close();  
+    }  
+}
+<form name="formulaire" method="post" action="ajouter.php">
+<table width="200" border="1">
+    <tr>
+        <td>Nom:</td>
+        <td><input name="nom" type="text" id="nom" /></td>
+    </tr>
+    <tr>
+        <td>Prénom:</td>
+        <td><input name="prenom" type="text" id="prenom" /></td>
+    </tr>
+    <tr>
+        <td>Mail:</td>
+        <td><input name="mail" type="text" id="mail"  /></td>
+    </tr>
+	 <tr>
+        <td>Telephone:</td>
+        <td><input name="telephone" type="text" id="telephone" size="8" maxlength="8"  /></td>
+    </tr>
+	 <tr>
+        <td>Type de demande :</td>
+        <td><input name="typededemande" type="text" id="typededemande" /></td>
+    </tr>
+	 <tr>
+        <td>Demande:</td>
+        <td><input name="demande" type="text" id="demande"  /></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <div align="center">
+            <input type="submit" name="Submit" value="Envoyer" />
+            </div>
+        </td>
+    </tr>
+</table>
+</form>
+var call_counter= require('./call_counter');
+fucntion multiply(x,y){
+    call counter():
+	return x*y;
+	} 
+ fucntion divide(x,y){
+   call_counter();
+   return x/y;
+   } 
+   function fibo(count){
+    call_counter();
+	return private_fibo(count)
+	}
+	function private_fibo(count,counter,first,second){
+	  if(count=0) return 0;
+      if(counter == undefined) {
+	      counter=1
+		  first=1;
+		  second=2;
+  	}
+   result = fisrt+ second;
+   if(counter == count) return result;
+   private_fibo(count, ++counter , second, result)
+   return result;
+   }
+   module.express = {
+       multiplication : multiply,
+	   division : divide,
+	   fibonacci : fibo
+}	   
+</div>
+</body>
+</html>
